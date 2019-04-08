@@ -52,10 +52,14 @@ $(document).ready(function(){
     var rankingInput = parseInt($("#ranking").val());
     var destination = new Destination(locationNameInput, landmarksInput, timeOfYearInput, notesInput, rankingInput);
     destinationLog.addDestination(destination);
-    $("#info").append("<li>" + destinationLog.destinations[destinationLog.currentId - 1].locationName + "</li>");
-    $(".test").append("<p>" + destinationLog.destinations[destinationLog.currentId - 1].landmarks + "</br>" + destinationLog.destinations[destinationLog.currentId - 1].timeOfYear + "</br>" + destinationLog.destinations[destinationLog.currentId - 1].notes + "</br>" + destinationLog.destinations[destinationLog.currentId - 1].ranking + "</p>");
+    $("#info").append(destinationLog.destinations[destinationLog.currentId - 1].locationName);
+    $("#properties").append(destinationLog.destinations[destinationLog.currentId - 1].landmarks + "</br>" + destinationLog.destinations[destinationLog.currentId - 1].timeOfYear + "</br>" + destinationLog.destinations[destinationLog.currentId - 1].notes + "</br>" + destinationLog.destinations[destinationLog.currentId - 1].ranking);
     // console.log(landmarksInput);
     // console.log(destinationLog);
     i++;
+  });
+  $("#info.clickable").click(function(event) {
+    // event.preventDefault();
+    $("#properties").toggle();
   });
 });
